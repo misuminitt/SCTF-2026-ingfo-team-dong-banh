@@ -1,0 +1,12 @@
+{
+  "name": "gudang-internal-service",
+  "version": "1.0.0",
+  "description": "Internal Gudang Makanan Service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

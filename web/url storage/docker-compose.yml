@@ -1,0 +1,14 @@
+services:
+  web:
+    build: ./web
+    ports:
+      - "8087:5000"
+    environment:
+      - FLASK_ENV=production
+
+  bot:
+    build: ./bot
+    environment:
+      - WEB_URL=http://web:5000
+    depends_on:
+      - web

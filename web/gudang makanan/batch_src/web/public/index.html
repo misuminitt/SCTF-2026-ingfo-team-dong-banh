@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistem Distribusi Makanan Bergizi Nasional - Dashboard Validasi Menu dan Monitoring Gudang">
+  <title>Gudang Makanan Nasional — Sistem Distribusi & Validasi Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">🏛️</div>
+          <div class="logo-text">
+            <span class="logo-title">GUDANG MAKANAN</span>
+            <span class="logo-subtitle">Nasional v2.3</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <span class="nav-label">UTAMA</span>
+          <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#" class="nav-item" data-page="check-image" id="nav-check-image">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-text">Cek Gambar Menu</span>
+          </a>
+        </div>
+        <div class="nav-section">
+          <span class="nav-label">MONITORING</span>
+          <a href="#" class="nav-item" data-page="stok" id="nav-stok">
+            <span class="nav-icon">📦</span>
+            <span class="nav-text">Stok Makanan</span>
+          </a>
+          <a href="#" class="nav-item" data-page="statistik" id="nav-statistik">
+            <span class="nav-icon">📈</span>
+            <span class="nav-text">Statistik</span>
+          </a>
+          <a href="#" class="nav-item" data-page="gudang" id="nav-gudang">
+            <span class="nav-icon">🏭</span>
+            <span class="nav-text">Data Gudang</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">👤</div>
+          <div class="user-details">
+            <span class="user-name">Auditor CTF</span>
+            <span class="user-role">Security Analyst</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="top-header">
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <div class="header-title">
+          <h1 id="page-title">Dashboard</h1>
+          <p class="header-subtitle" id="page-subtitle">Monitoring Distribusi Makanan Bergizi Nasional</p>
+        </div>
+        <div class="header-actions">
+          <div class="status-badge online">
+            <span class="status-dot"></span>
+            <span>Sistem Aktif</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="content-area">
+
+        <!-- ==================== DASHBOARD PAGE ==================== -->
+        <section class="page active" id="page-dashboard">
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card" style="--accent: #10b981">
+              <div class="stat-icon">🍽️</div>
+              <div class="stat-info">
+                <span class="stat-value" data-count="156">0</span>
+                <span class="stat-label">Menu Aktif</span>
+              </div>
+              <div class="stat-trend up">↑ 12%</div>
+            </div>
+            <div class="stat-card" style="--accent: #3b82f6">
+              <div class="stat-icon">🏭</div>
+              <div class="stat-info">
+                <span class="stat-value" data-count="34">0</span>
+                <span class="stat-label">Total Gudang</span>
+              </div>
+              <div class="stat-trend up">↑ 2</div>
+            </div>
+            <div class="stat-card" style="--accent: #f59e0b">
+              <div class="stat-icon">📦</div>
+              <div class="stat-info">
+                <span class="stat-value" data-count="15420">0</span>
+                <span class="stat-label">Distribusi Hari Ini</span>
+              </div>
+              <div class="stat-trend up">↑ 8.3%</div>
+            </div>
+            <div class="stat-card" style="--accent: #8b5cf6">
+              <div class="stat-icon">🤝</div>
+              <div class="stat-info">
+                <span class="stat-value" data-count="89">0</span>
+                <span class="stat-label">Supplier Aktif</span>
+              </div>
+              <div class="stat-trend up">↑ 5</div>
+            </div>
+          </div>
+
+          <!-- Dashboard Panels -->
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>📊 Distribusi Mingguan</h3>
+              </div>
+              <div class="panel-body">
+                <div class="chart-bars">
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Sen</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 72%;" data-val="14.2k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Sel</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 85%;" data-val="16.8k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Rab</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 65%;" data-val="12.9k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Kam</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 91%;" data-val="18.0k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Jum</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 78%;" data-val="15.4k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Sab</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 55%;" data-val="10.9k"></div></div>
+                  </div>
+                  <div class="chart-bar-item">
+                    <span class="chart-bar-label">Min</span>
+                    <div class="chart-bar-track"><div class="chart-bar-fill" style="--h: 42%;" data-val="8.3k"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <h3>🥗 Menu Populer</h3>
+              </div>
+              <div class="panel-body">
+                <div class="menu-list">
+                  <div class="menu-item">
+                    <span class="menu-rank">#1</span>
+                    <span class="menu-name">Nasi Ayam Gizi Lengkap</span>
+                    <span class="menu-cal">520 kkal</span>
+                    <div class="menu-bar"><div class="menu-bar-fill" style="width: 95%"></div></div>
+                  </div>
+                  <div class="menu-item">
+                    <span class="menu-rank">#2</span>
+                    <span class="menu-name">Sayur Sop + Telur Rebus</span>
+                    <span class="menu-cal">380 kkal</span>
+                    <div class="menu-bar"><div class="menu-bar-fill" style="width: 82%"></div></div>
+                  </div>
+                  <div class="menu-item">
+                    <span class="menu-rank">#3</span>
+                    <span class="menu-name">Bubur Kacang Hijau Nutrisi</span>
+                    <span class="menu-cal">290 kkal</span>
+                    <div class="menu-bar"><div class="menu-bar-fill" style="width: 71%"></div></div>
+                  </div>
+                  <div class="menu-item">
+                    <span class="menu-rank">#4</span>
+                    <span class="menu-name">Ikan Bakar + Sambal</span>
+                    <span class="menu-cal">450 kkal</span>
+                    <div class="menu-bar"><div class="menu-bar-fill" style="width: 65%"></div></div>
+                  </div>
+                  <div class="menu-item">
+                    <span class="menu-rank">#5</span>
+                    <span class="menu-name">Tempe Orek + Lalapan</span>
+                    <span class="menu-cal">340 kkal</span>
+                    <div class="menu-bar"><div class="menu-bar-fill" style="width: 58%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="panel" style="margin-top: 1.5rem;">
+            <div class="panel-header">
+              <h3>🕐 Aktivitas Validasi Terakhir</h3>
+            </div>
+            <div class="panel-body">
+              <div class="activity-table-wrapper">
+                <table class="activity-table">
+                  <thead>
+                    <tr>
+                      <th>Waktu</th>
+                      <th>URL</th>
+                      <th>Status</th>
+                      <th>Ukuran</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="time-cell">2 menit lalu</td>
+                      <td class="url-cell">
+                        <a href="#" class="test-url-btn" data-url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ayam_geprek_rawit.jpg/320px-Ayam_geprek_rawit.jpg" title="Klik untuk menguji URL ini">
+                          https://upload.wikimedia.org/.../Ayam_geprek.jpg <span style="font-size: 0.8rem; margin-left: 5px;">↗️</span>
+                        </a>
+                      </td>
+                      <td><span class="status-tag success">Valid ✓</span></td>
+                      <td>55 KB</td>
+                    </tr>
+                    <tr>
+                      <td class="time-cell">15 menit lalu</td>
+                      <td class="url-cell">
+                        <a href="#" class="test-url-btn" data-url="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Rendang_Daging_Sapi_Asli_Padang.JPG/320px-Rendang_Daging_Sapi_Asli_Padang.JPG" title="Klik untuk menguji URL ini">
+                          https://upload.wikimedia.org/.../Rendang.JPG <span style="font-size: 0.8rem; margin-left: 5px;">↗️</span>
+                        </a>
+                      </td>
+                      <td><span class="status-tag success">Valid ✓</span></td>
+                      <td>48 KB</td>
+                    </tr>
+                    <tr>
+                      <td class="time-cell">1 jam lalu</td>
+                      <td class="url-cell">
+                        <a href="#" class="test-url-btn" data-url="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Soto_Ayam_Kuning.jpg/320px-Soto_Ayam_Kuning.jpg" title="Klik untuk menguji URL ini">
+                          https://upload.wikimedia.org/.../Soto_Ayam.jpg <span style="font-size: 0.8rem; margin-left: 5px;">↗️</span>
+                        </a>
+                      </td>
+                      <td><span class="status-tag success">Valid ✓</span></td>
+                      <td>32 KB</td>
+                    </tr>
+                    <tr>
+                      <td class="time-cell">2 jam lalu</td>
+                      <td class="url-cell">
+                        <a href="#" class="test-url-btn" data-url="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gado_gado_jakarta.jpg/320px-Gado_gado_jakarta.jpg" title="Klik untuk menguji URL ini">
+                          https://upload.wikimedia.org/.../Gado_gado.jpg <span style="font-size: 0.8rem; margin-left: 5px;">↗️</span>
+                        </a>
+                      </td>
+                      <td><span class="status-tag success">Valid ✓</span></td>
+                      <td>45 KB</td>
+                    </tr>
+                    <tr>
+                      <td class="time-cell">3 jam lalu</td>
+                      <td class="url-cell">
+                        <a href="#" class="test-url-btn" data-url="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nasi_goreng_indonesia.jpg/320px-Nasi_goreng_indonesia.jpg" title="Klik untuk menguji URL ini">
+                          https://upload.wikimedia.org/.../Nasi_goreng.jpg <span style="font-size: 0.8rem; margin-left: 5px;">↗️</span>
+                        </a>
+                      </td>
+                      <td><span class="status-tag success">Valid ✓</span></td>
+                      <td>38 KB</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== CEK GAMBAR MENU PAGE ==================== -->
+        <section class="page" id="page-check-image">
+          <div class="check-image-container">
+            <!-- Info Banner -->
+            <div class="info-banner">
+              <div class="info-banner-icon">ℹ️</div>
+              <div class="info-banner-content">
+                <h4>Validasi Gambar Menu Supplier</h4>
+                <p>Masukkan URL gambar makanan dari supplier untuk memvalidasi kesesuaian dengan standar gizi nasional. Sistem akan mengambil dan menganalisis gambar secara otomatis.</p>
+              </div>
+            </div>
+
+            <!-- Input Form -->
+            <div class="panel check-panel">
+              <div class="panel-header">
+                <h3>🔍 Cek Gambar Menu</h3>
+              </div>
+              <div class="panel-body">
+                <form id="check-form">
+                  <div class="form-group">
+                    <label for="image-url">URL Gambar Makanan</label>
+                    <div class="input-wrapper">
+                      <span class="input-icon">🌐</span>
+                      <input
+                        type="text"
+                        id="image-url"
+                        name="url"
+                        placeholder="https://food-image.com/nasi.png"
+                        autocomplete="off"
+                        spellcheck="false"
+                      >
+                    </div>
+                    <span class="form-hint">Format yang didukung: .png, .jpg, .jpeg, .gif, .webp, .svg</span>
+                  </div>
+                  <button type="submit" class="btn-primary" id="btn-validate">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">Validasi Menu</span>
+                    <span class="btn-loading" style="display:none;">
+                      <span class="spinner"></span>
+                      Memproses...
+                    </span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Result Area -->
+            <div class="panel result-panel" id="result-panel" style="display: none;">
+              <div class="panel-header">
+                <h3>📋 Hasil Validasi</h3>
+                <button class="btn-close" id="btn-close-result">✕</button>
+              </div>
+              <div class="panel-body">
+                <div id="result-content"></div>
+              </div>
+            </div>
+
+            <!-- Error Area -->
+            <div class="panel error-panel" id="error-panel" style="display: none;">
+              <div class="panel-header">
+                <h3>⚠️ Error</h3>
+                <button class="btn-close" id="btn-close-error">✕</button>
+              </div>
+              <div class="panel-body">
+                <div id="error-content"></div>
+              </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+              <div class="security-icon">🛡️</div>
+              <div class="security-text">
+                <strong>Kebijakan Keamanan:</strong> Sistem ini dilengkapi proteksi terhadap akses jaringan internal. Hanya URL publik yang diizinkan.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== STOK MAKANAN PAGE ==================== -->
+        <section class="page" id="page-stok">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>📦 Stok Makanan per Gudang</h3>
+            </div>
+            <div class="panel-body">
+              <div class="activity-table-wrapper">
+                <table class="activity-table">
+                  <thead>
+                    <tr>
+                      <th>Kode</th>
+                      <th>Gudang</th>
+                      <th>Kapasitas</th>
+                      <th>Items</th>
+                      <th>Suhu</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>GDG-001</code></td>
+                      <td>Gudang Pusat Jakarta</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:85%; --cap-color: #f59e0b"></div><span>85%</span></div></td>
+                      <td>15,000</td>
+                      <td>18°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-002</code></td>
+                      <td>Gudang Regional Surabaya</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:72%; --cap-color: #10b981"></div><span>72%</span></div></td>
+                      <td>12,000</td>
+                      <td>19°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-003</code></td>
+                      <td>Gudang Regional Medan</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:91%; --cap-color: #ef4444"></div><span>91%</span></div></td>
+                      <td>18,000</td>
+                      <td>20°C</td>
+                      <td><span class="status-tag warning">Hampir Penuh</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-004</code></td>
+                      <td>Gudang Regional Makassar</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:97%; --cap-color: #ef4444"></div><span>97%</span></div></td>
+                      <td>22,000</td>
+                      <td>21°C</td>
+                      <td><span class="status-tag danger">Kritis!</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-005</code></td>
+                      <td>Gudang Regional Bandung</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:79%; --cap-color: #f59e0b"></div><span>79%</span></div></td>
+                      <td>11,000</td>
+                      <td>17°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-006</code></td>
+                      <td>Gudang Regional Semarang</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:65%; --cap-color: #10b981"></div><span>65%</span></div></td>
+                      <td>8,500</td>
+                      <td>19°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-007</code></td>
+                      <td>Gudang Regional Palembang</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:58%; --cap-color: #10b981"></div><span>58%</span></div></td>
+                      <td>7,200</td>
+                      <td>22°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                    <tr>
+                      <td><code>GDG-008</code></td>
+                      <td>Gudang Regional Denpasar</td>
+                      <td><div class="capacity-bar"><div class="capacity-fill" style="width:43%; --cap-color: #10b981"></div><span>43%</span></div></td>
+                      <td>5,100</td>
+                      <td>23°C</td>
+                      <td><span class="status-tag success">Aktif</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== STATISTIK PAGE ==================== -->
+        <section class="page" id="page-statistik">
+          <div class="stats-grid">
+            <div class="stat-card" style="--accent: #10b981">
+              <div class="stat-icon">🍚</div>
+              <div class="stat-info">
+                <span class="stat-value">412,300</span>
+                <span class="stat-label">Porsi Bulan Ini</span>
+              </div>
+            </div>
+            <div class="stat-card" style="--accent: #3b82f6">
+              <div class="stat-icon">🔥</div>
+              <div class="stat-info">
+                <span class="stat-value">2,150</span>
+                <span class="stat-label">Avg Kalori/Porsi</span>
+              </div>
+            </div>
+            <div class="stat-card" style="--accent: #f59e0b">
+              <div class="stat-icon">🗺️</div>
+              <div class="stat-info">
+                <span class="stat-value">514</span>
+                <span class="stat-label">Wilayah Terlayani</span>
+              </div>
+            </div>
+            <div class="stat-card" style="--accent: #ef4444">
+              <div class="stat-icon">⚠️</div>
+              <div class="stat-info">
+                <span class="stat-value">3</span>
+                <span class="stat-label">Gudang Maintenance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid" style="margin-top: 1.5rem;">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>🥦 Distribusi per Kategori Gizi</h3>
+              </div>
+              <div class="panel-body">
+                <div class="nutrition-grid">
+                  <div class="nutrition-item">
+                    <div class="nutrition-ring" style="--progress: 87; --ring-color: #10b981">
+                      <span>87%</span>
+                    </div>
+                    <span class="nutrition-label">Karbohidrat</span>
+                  </div>
+                  <div class="nutrition-item">
+                    <div class="nutrition-ring" style="--progress: 72; --ring-color: #3b82f6">
+                      <span>72%</span>
+                    </div>
+                    <span class="nutrition-label">Protein</span>
+                  </div>
+                  <div class="nutrition-item">
+                    <div class="nutrition-ring" style="--progress: 65; --ring-color: #f59e0b">
+                      <span>65%</span>
+                    </div>
+                    <span class="nutrition-label">Lemak Sehat</span>
+                  </div>
+                  <div class="nutrition-item">
+                    <div class="nutrition-ring" style="--progress: 91; --ring-color: #8b5cf6">
+                      <span>91%</span>
+                    </div>
+                    <span class="nutrition-label">Vitamin & Mineral</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>📅 Distribusi Bulanan (2026)</h3>
+              </div>
+              <div class="panel-body">
+                <div class="monthly-chart">
+                  <div class="month-bar"><span class="month-label">Jan</span><div class="month-fill" style="--h: 62%"><span>310k</span></div></div>
+                  <div class="month-bar"><span class="month-label">Feb</span><div class="month-fill" style="--h: 68%"><span>340k</span></div></div>
+                  <div class="month-bar"><span class="month-label">Mar</span><div class="month-fill" style="--h: 75%"><span>375k</span></div></div>
+                  <div class="month-bar"><span class="month-label">Apr</span><div class="month-fill" style="--h: 80%"><span>400k</span></div></div>
+                  <div class="month-bar"><span class="month-label">Mei</span><div class="month-fill" style="--h: 85%"><span>425k</span></div></div>
+                  <div class="month-bar active"><span class="month-label">Jun</span><div class="month-fill" style="--h: 72%"><span>412k</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== DATA GUDANG PAGE ==================== -->
+        <section class="page" id="page-gudang">
+          <div class="gudang-grid">
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-001</span>
+                <span class="status-tag success">Aktif</span>
+              </div>
+              <h4>Gudang Pusat Jakarta</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">85%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">15,000</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">18°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill" style="width: 85%"></div></div>
+            </div>
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-002</span>
+                <span class="status-tag success">Aktif</span>
+              </div>
+              <h4>Gudang Regional Surabaya</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">72%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">12,000</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">19°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill" style="width: 72%"></div></div>
+            </div>
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-003</span>
+                <span class="status-tag warning">Hampir Penuh</span>
+              </div>
+              <h4>Gudang Regional Medan</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">91%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">18,000</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">20°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill warn" style="width: 91%"></div></div>
+            </div>
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-004</span>
+                <span class="status-tag danger">Kritis!</span>
+              </div>
+              <h4>Gudang Regional Makassar</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">97%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">22,000</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">21°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill critical" style="width: 97%"></div></div>
+            </div>
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-005</span>
+                <span class="status-tag success">Aktif</span>
+              </div>
+              <h4>Gudang Regional Bandung</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">79%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">11,000</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">17°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill" style="width: 79%"></div></div>
+            </div>
+            <div class="gudang-card">
+              <div class="gudang-card-header">
+                <span class="gudang-code">GDG-006</span>
+                <span class="status-tag success">Aktif</span>
+              </div>
+              <h4>Gudang Regional Semarang</h4>
+              <div class="gudang-stats">
+                <div class="gudang-stat"><span class="gs-label">Kapasitas</span><span class="gs-value">65%</span></div>
+                <div class="gudang-stat"><span class="gs-label">Items</span><span class="gs-value">8,500</span></div>
+                <div class="gudang-stat"><span class="gs-label">Suhu</span><span class="gs-value">19°C</span></div>
+              </div>
+              <div class="gudang-bar"><div class="gudang-bar-fill" style="width: 65%"></div></div>
+            </div>
+          </div>
+        </section>
+
+
+
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

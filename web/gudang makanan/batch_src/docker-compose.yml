@@ -1,0 +1,30 @@
+services:
+  web:
+    build: ./web
+    container_name: gudang-web
+    ports:
+      - "8092:3000"
+    networks:
+      - frontend
+      - backend
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  gudang-api:
+    build: ./internal
+    container_name: gudang-internal
+    networks:
+      - backend
+    # TIDAK ada port yang di-expose ke host!
+    # Hanya bisa diakses dari network docker internal
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true

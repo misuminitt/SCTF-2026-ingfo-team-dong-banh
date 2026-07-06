@@ -1,0 +1,15 @@
+{
+  "app_name": "Gudang Makanan Web",
+  "version": "2.3.1",
+  "environment": "production",
+  "backend_service": {
+    "host": "gudang-api",
+    "port": 8080,
+    "protocol": "http"
+  },
+  "features": {
+    "enable_ssrf_protection": true,
+    "strict_path_filter": true,
+    "require_image_extension": true
+  }
+}
