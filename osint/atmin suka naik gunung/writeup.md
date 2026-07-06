@@ -2,7 +2,7 @@
 
 **Category    :** OSINT  
 **Difficulty  :** Medium  
-**File        :** ![gunung](gunung.jpg)
+**File        :** ![gunung](gunung.jpg)  
 **Description :**
 
 si atmin ini lagi suka sukanya naik gunung, cuma dia ini ga mau naik gunung yg beneran
