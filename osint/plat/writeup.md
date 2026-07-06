@@ -2,7 +2,7 @@
 
 **Category    :** OSINT  
 **Difficulty  :** Medium  
-**File        :** ![mobil](mobil.png)
+**File        :** ![mobil](mobil.png)  
 **Description :**
 
 ini mobil siapa bro? coba cariin si ini mobil punya siapa
